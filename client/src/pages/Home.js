@@ -9,6 +9,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css';
 import HomeCategory from "../components/HomeCategory";
 import HomeInfos from "../components/HomeInfos";
+import Banner from "../components/Banner";
 
 const Home = () => {
 
@@ -33,10 +34,11 @@ const Home = () => {
     }, [])
 
     return (
-        <section className="min-h-screen bg-zinc-50">
+        <section className="min-h-screen">
             <Navbar />
             <Header />
             <NewProducts products={products} />
+            <Banner />
             <Trend products={products} />
             <HomeCategory />
             <HomeInfos />

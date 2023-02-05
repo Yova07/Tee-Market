@@ -29,28 +29,41 @@ const NewProducts = ({ products }) => {
     };
 
     return (
-        <div data-aos='fade up' className="flex flex-col justify-center items-center mt-10 md:mt-20 mb-10 md:mb-20">
-            <h1 className="text-3xl md:text-5xl"><span className="font-bold text-red-900">New</span> on <span className="font-['Lobster'] text-3xl md:text-5xl" >Music</span></h1>
-            <Carousel
-                customRightArrow={<button className='bg-red-900 w-10 h-10 rounded-full absolute top:1/2 right-10'><i class="fa-solid fa-chevron-right  text-white"></i></button>}
-                customLeftArrow={<button className='bg-red-900 w-10 h-10 rounded-full absolute top:1/2 left-10'><i class="fa-solid fa-chevron-left text-white"></i></button>}
-                infinite={true}
-                responsive={responsive}
-                className="carousel mt-10 2xl:max-w-[1500px] w-11/12 md:py-5">
+        <div data-aos='fade up' className=" mx-auto pt-10 md:pt-20 bg-white max-w-[1440px] w-11/12">
+            <h1 className="text-3xl md:text-4xl mb-10 text-center sm:text-left"><span className="font-bold text-red-900">New</span> on <span className="font-['Lobster'] text-3xl md:text-4xl" >Music</span></h1>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
                 {products.map((product) => (
                     <Link key={product._id} to={`/product/${product.name}`}>
-                        <div className="card rounded-md mx-1 md:mx-2 pb-2 transition-all cursor-pointer bg-white shadow hover:shadow-lg">
+                        <div className="card rounded-sm transition-all cursor-pointer bg-white">
                             {/* <div className="img w-full h-32 md:h-48 rounded-t-md" style={{ backgroundImage: `url(${(product.image)})` }}></div> */}
-                            <img className='p-4 hover:p-2 transition-all' src={product.image}></img>
-                            <div className='w-4/5 mx-auto'>
-                                <h1 className="title flex items-center h-10 text-base transition-all">{product.name}</h1>
-                                <p className=" text-lg md:text-2xl h-20 font-bold">{product.price}€</p>
+                            <div className='relative'>
+                                <img className='img max-h-72 mx-auto p-4 hover:p-2 transition-all' src={product.image[0]}></img>
+                                <div className='absolute top-0 w-full h-full bg-gray-500 opacity-5'></div>
+                                <div className='absolute right-0 top-0 bg-black text-white text-xl w-16 text-center'>New</div>
+                            </div>
+                            <div>
+                                <div className='flex flex-wrap-reverse md:flex-nowrap items-center justify-between'>
+                                    <h1 className="title flex items-center w-48 h-10 text-base transition-all">{product.name}</h1>
+                                    <div className='text-sm flex items-center text-red-900'>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <p className='ml-1 text-black'>(0)</p>
+                                    </div>
+                                </div>
+
+                                <p className=" text-lg md:text-lg h-20">€{product.price}</p>
                             </div>
 
                         </div>
                     </Link>
                 ))}
-            </Carousel>
+            </div>
+            <div className='w-full text-center pb-10 md:pb-20'>
+                <button className='px-20 py-2 text-xl rounded-sm text-orange-700 border-2 border-orange-700 hover:bg-orange-700 hover:text-white transition-all '>See more</button>
+            </div>
         </div>
     )
 }

@@ -3,17 +3,30 @@ import { Link } from "react-router-dom";
 const ProductsByCategory = ({ productsByCategory }) => {
 
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5 col-start-2 col-end-6 min-h-screen">
             {productsByCategory.map((product) => (
-                <Link key={product._id} to={`/product/${product.name.split(' ').join('-')}`}>
-                    <div data-aos='fade-up' data-aos-anchor-placement="bottom-bottom" className="card rounded-md  mx-auto transition-all cursor-pointer bg-white shadow hover:shadow-lg">
+                <Link key={product._id} to={`/product/${product.name}`}>
+                    <div data-aos='fade-up' className="card rounded-md  mx-auto transition-all cursor-pointer bg-white">
                         {/* <div className="img w-full h-48 rounded-t-md" style={{ backgroundImage: `url(${(product.image)})` }}></div> */}
-                        <img className="p-4 hover:p-2 transition-all" src={product.image}></img>
-                        <div className="w-4/5 mx-auto ">
-                            <h1 className="title h-10 text-md transition-all">{product.name}</h1>
+                        <div className="max-h-72 relative">
+                            <img className="img h-full mx-auto p-4 hover:p-2 transition-all" src={product.image[0]}></img>
+                            <div className="absolute top-0 w-full h-full bg-gray-500 opacity-5"></div>
+                        </div>
+                        <div>
+                            <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap">
+                                <h1 className="title flex items-center h-10 text-md transition-all">{product.name}</h1>
+                                <div className='text-sm flex items-center text-red-900'>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <p className='ml-1 text-black'>(0)</p>
+                                </div>
+                            </div>
                             <div className="h-20">
-                                <p className="text-green-700 text-sm">Available now</p>
-                                <p className="text-xl font-bold mb-10">{product.price}€</p>
+                                <p className={`${product.quantity > 0 ? 'text-green-700' : 'text-red-700'} text-sm`}>{product.quantity > 0 ? 'Available now' : 'Not in stock'}</p>
+                                <p className="text-lg font-bold">{product.price}€</p>
                             </div>
                         </div>
                     </div>

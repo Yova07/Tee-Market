@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const productsSchema = new Schema({
     image: {
-        type: String,
+        type: Array,
         required: true
     },
     name: {
@@ -24,10 +24,34 @@ const productsSchema = new Schema({
     },
     characteristics: {
         type: Array
+    },
+    quantity: {
+        type: Number,
+        required: true
+    },
+    comment: {
+        type: Array,
+        required: false
     }
+     
 }, 
 {
     timestamps: true
 })
 
+productsSchema.static.addComment = async function (articleId, stars, shortTitle, comment) {
+
+    const product = await this.findOne({ _id: articleId });
+
+    const newComment = await product.comment.push({
+        stars, 
+        shortTitle,
+        comment
+    })
+
+    return newComment;
+}
+
 module.exports = mongoose.model('Products', productsSchema);
+
+

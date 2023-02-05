@@ -47,6 +47,18 @@ exports.createProduct = async (req, res) => {
     }
 }
 
+exports.createComment = async (req, res) => {
+    const { articleId, stars, shortTitle, comment } = req.body;
+
+    try {
+        const newComment = await Products.addComment(articleId, stars, shortTitle, comment)
+
+        res.status(200).json(newComment);
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
 exports.deleteProduct = async (req, res) => {
     const { id } = req.params;
 
