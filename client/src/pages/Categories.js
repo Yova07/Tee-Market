@@ -16,19 +16,70 @@ const Categories = () => {
     const [maxValue, setMaxValue] = useState(5000)
     const [active, setActive] = useState(false)
     const [hideFilter, setHideFilter] = useState(false)
+    const [fiveStarsActive, setFiveStarsActive] = useState(false);
+    const [fourStarsActive, setFourStarsActive] = useState(false);
+    const [treeStarsActive, setTreeStarsActive] = useState(false);
 
     const toLowerCase = (category) => {
-        let split = category.split('-').join(' ');
-        let toUpperCase = split.charAt(0).toUpperCase() + split.slice(1);
-        setCategoryTitle(toUpperCase);
+        const split = category.charAt(0).toUpperCase();
+        const upperCase = split + category.slice(1);
+        setCategoryTitle(upperCase)
+    }
+
+    const handleSelectChange = (value) => {
+        if (value === 'popularity') {
+            const sortedData = [...productsByCategory].sort((a, b) => {
+                return a.note > b.note ? -1 : 1
+            })
+            setProductsByCategory(sortedData);
+        }
+        if (value === 'priceLowToHigh') {
+            const sortedData = [...productsByCategory].sort((a, b) => {
+                return a.price > b.price ? 1 : -1
+            })
+            setProductsByCategory(sortedData);
+        }
+        if (value === 'priceHighToLow') {
+            const sortedData = [...productsByCategory].sort((a, b) => {
+                return a.price > b.price ? -1 : 1
+            })
+            setProductsByCategory(sortedData);
+        }
+        if (value === 'newFirst') {
+            const sortedData = [...productsByCategory].sort((a, b) => {
+                return a.createdAt > b.createdAt ? 1 : -1
+            })
+            setProductsByCategory(sortedData);
+        }
     }
 
     useEffect(() => {
-        setProductsByCategory(allProductsByCategory.filter((data) => data.price < maxValue && data.price > minValue ));
-        if(active === true) {
+        setProductsByCategory(allProductsByCategory.filter((data) => data.price < maxValue && data.price > minValue));
+        if (active === true) {
             setProductsByCategory(allProductsByCategory.filter((data) => data.quantity > 0));
         }
-    },[minValue, maxValue, active])
+        if(fiveStarsActive === true && fourStarsActive === false && treeStarsActive === false) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note > 4.5))
+        }
+        if(fiveStarsActive === true && fourStarsActive === true && treeStarsActive === false) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note > 3.5))
+        }
+        if(fiveStarsActive === true && fourStarsActive === true && treeStarsActive === true) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note > 2.5))
+        }
+        if(fiveStarsActive === false && fourStarsActive === true && treeStarsActive === false) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note < 4.5 && data.note > 3.5))
+        }
+        if(fiveStarsActive === false &&fourStarsActive === true && treeStarsActive === true) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note < 4.5 && data.note > 2.5))
+        }
+        if(fiveStarsActive === false && fourStarsActive === false && treeStarsActive === true) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note < 3.5 && data.note > 2.5))
+        }
+        if(fiveStarsActive === true && fourStarsActive === false && treeStarsActive === true) {
+            setProductsByCategory(allProductsByCategory.filter((data) => data.note < 2.5 && data.note > 4.5))
+        }
+    }, [minValue, maxValue, active, fiveStarsActive, fourStarsActive, treeStarsActive])
 
     useEffect(() => {
         const fetchCategory = async () => {
@@ -57,16 +108,30 @@ const Categories = () => {
                 <h1 className="mt-10 pb-5 text-5xl w-full mx-auto font-bold">{categoryTitle}</h1>
                 <div className="flex items-end full justify-between border-b pb-3">
                     <p className="text-lg" onClick={() => setHideFilter(!hideFilter)}><i class="fa-solid fa-sliders mr-1"></i>Filter</p>
-                    <select className="w-40 text-lg p-1 bg-zinc-50 rounded">
-                        <option>Popularity</option>
-                        <option>Price : low to high</option>
-                        <option>Price : high to low</option>
-                        <option>New products first</option>
+                    <select className="w-40 text-lg p-1 bg-zinc-50 rounded" onChange={(e) => handleSelectChange(e.target.value)}>
+                        <option value='popularity' selected>Popularity</option>
+                        <option value='priceLowToHigh'>Price : low to high</option>
+                        <option value='priceHighToLow'>Price : high to low</option>
+                        <option value='newFirst'>New products</option>
                     </select>
                 </div>
 
                 <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mt-10">
-                    <AsideFilterCategory setMinValue={setMinValue} setMaxValue={setMaxValue} minValue={minValue} maxValue={maxValue} setActive={setActive} active={active} hideFilter={hideFilter} setHideFilter={setHideFilter} />
+                    <AsideFilterCategory
+                        setMinValue={setMinValue}
+                        setMaxValue={setMaxValue}
+                        minValue={minValue}
+                        maxValue={maxValue}
+                        setActive={setActive}
+                        active={active}
+                        hideFilter={hideFilter}
+                        setHideFilter={setHideFilter}
+                        fiveStarsActive={fiveStarsActive}
+                        fourStarsActive={fourStarsActive}
+                        treeStarsActive={treeStarsActive}
+                        setFiveStarsActive={setFiveStarsActive}
+                        setFourStarsActive={setFourStarsActive}
+                        setTreeStarsActive={setTreeStarsActive} />
                     <ProductsByCategory productsByCategory={productsByCategory} />
                 </div>
             </div>

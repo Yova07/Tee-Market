@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Stars from "./Stars";
 
 const ProductsByCategory = ({ productsByCategory }) => {
 
@@ -15,14 +16,7 @@ const ProductsByCategory = ({ productsByCategory }) => {
                         <div>
                             <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap">
                                 <h1 className="title flex items-center h-10 text-md transition-all">{product.name}</h1>
-                                <div className='text-sm flex items-center text-red-900'>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <p className='ml-1 text-black'>(0)</p>
-                                </div>
+                                <Stars productId={product._id} />
                             </div>
                             <div className="h-20">
                                 <p className={`${product.quantity > 0 ? 'text-green-700' : 'text-red-700'} text-sm`}>{product.quantity > 0 ? 'Available now' : 'Not in stock'}</p>

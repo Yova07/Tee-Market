@@ -1,32 +1,26 @@
-import Carousel from 'react-multi-carousel';
+import { useEffect, useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
+import Stars from './Stars';
+import axios from 'axios';
 
-const NewProducts = ({ products }) => {
+const NewProducts = () => {
 
+    const [products, setProducts] = useState([]);
 
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 3000 },
-            items: 5
-        },
-        largeDesktop: {
-            breakpoint: { max: 3000, min: 1440 },
-            items: 5
-        },
-        desktop: {
-            breakpoint: { max: 1440, min: 1144 },
-            items: 4
-        },
-        tablet: {
-            breakpoint: { max: 1144, min: 634 },
-            items: 3
-        },
-        mobile: {
-            breakpoint: { max: 634, min: 0 },
-            items: 2
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('/api/products');
+
+                setProducts(response.data);
+            } catch (error) {
+                console.log(error);
+            }
         }
-    };
+
+        fetchProducts();
+    }, [])
 
     return (
         <div data-aos='fade up' className=" mx-auto pt-10 md:pt-20 bg-white max-w-[1440px] w-11/12">
@@ -44,14 +38,7 @@ const NewProducts = ({ products }) => {
                             <div>
                                 <div className='flex flex-wrap-reverse md:flex-nowrap items-center justify-between'>
                                     <h1 className="title flex items-center w-48 h-10 text-base transition-all">{product.name}</h1>
-                                    <div className='text-sm flex items-center text-red-900'>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <p className='ml-1 text-black'>(0)</p>
-                                    </div>
+                                    <Stars productId={product._id} />
                                 </div>
 
                                 <p className=" text-lg md:text-lg h-20">€{product.price}</p>
@@ -61,8 +48,8 @@ const NewProducts = ({ products }) => {
                     </Link>
                 ))}
             </div>
-            <div className='w-full text-center pb-10 md:pb-20'>
-                <button className='px-20 py-2 text-xl rounded-sm text-orange-700 border-2 border-orange-700 hover:bg-orange-700 hover:text-white transition-all '>See more</button>
+            <div className='w-full text-center pb-10 md:pb-10'>
+                <button className='px-20 py-2 text-xl md:hidden block mx-auto rounded-sm text-orange-700 border-2 border-orange-700 hover:bg-orange-700 hover:text-white transition-all '>See more</button>
             </div>
         </div>
     )

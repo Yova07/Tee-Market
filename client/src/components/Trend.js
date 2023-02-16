@@ -1,8 +1,27 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
+import Stars from './Stars';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const Trend = ({ products }) => {
+const Trend = () => {
+
+    const [trendsProducts, setTrendsProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('/api/products/popular');
+
+                setTrendsProducts(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchProducts();
+    }, [])
 
     const responsive = {
         superLargeDesktop: {
@@ -35,10 +54,12 @@ const Trend = ({ products }) => {
                     customRightArrow={<button className='bg-zinc-700 hover:bg-red-900 w-10 h-10 absolute top-1/2 right-0'><i class="fa-solid fa-chevron-right  text-white"></i></button>}
                     customLeftArrow={<button className='bg-zinc-700 hover:bg-red-900 w-10 h-10 absolute top-1/2 left-0'><i class="fa-solid fa-chevron-left text-white"></i></button>}
                     infinite={true}
-                    slidesToSlide={4}
+                    autoPlay={true}
+                    autoPlaySpeed={5000}
+                    slidesToSlide={1}
                     responsive={responsive}
                     className="carousel mt-5 max-w-[calc(1440px+1rem)] mx-auto w-[calc(91.666667%+1rem)]">
-                    {products.map((product) => (
+                    {trendsProducts.map((product) => (
                         <Link key={product._id} to={`/product/${product.name}`}>
                             <div className="card rounded-sm mx-2 pb-2 transition-all cursor-pointer">
                                 {/* <div className="img w-full h-32 md:h-48 rounded-t-md" style={{ backgroundImage: `url(${(product.image)})` }}></div> */}
@@ -49,14 +70,7 @@ const Trend = ({ products }) => {
                                 <div>
                                     <div className='flex justify-between items-center flex-wrap-reverse md:flex-nowrap'>
                                         <h1 className="title flex items-center h-10 text-base transition-all">{product.name}</h1>
-                                        <div className='text-sm flex items-center text-red-900'>
-                                            <i class="fa-regular fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                            <p className='ml-1 text-black'>(0)</p>
-                                        </div>
+                                        <Stars productId={product._id} />
                                     </div>
                                     <p className=" text-lg md:text-lg h-20">{product.price}€</p>
                                 </div>

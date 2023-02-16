@@ -1,9 +1,9 @@
-import { useContext, useState, useEffect } from "react";
-import { basketContext } from "../context/BasketContext";
+import { useState, useEffect } from "react";
+import { useBasketContext } from "../context/BasketContext";
 
 const Summary = () => {
 
-    const { basket } = useContext(basketContext)
+    const { basket } = useBasketContext();
     const [totalPrice, setTotalPrice] = useState('');
     const [hideVoucher, setHideVoucher] = useState(false)
 
@@ -17,19 +17,19 @@ const Summary = () => {
     }, [basket])
 
     return (
-        <div className="w-full lg:w-auto sticky top-10">
+        <div className="w-full lg:w-auto md:sticky top-10">
             <div className="shadow p-10 rounded bg-zinc-50">
                 <h1 className="text-3xl mb-16">Summary</h1>
                 <div>
-                    <div className="flex justify-between gap-60 mb-5">
+                    <div className="flex justify-between md:gap-60 mb-5">
                         <p>{basket.length} article{basket.length > 1 ? 's' : ''}</p>
                         <p>€{totalPrice}</p>
                     </div>
-                    <div className="flex justify-between gap-60 mb-5 border-b pb-5">
+                    <div className="flex justify-between md:gap-60 mb-5 border-b pb-5">
                         <p>Total shipping</p>
                         <p>{totalPrice > 69 ? 'Free' : basket.length === 0 ? '0' : '€5,99'}</p>
                     </div>
-                    <div className="flex justify-between gap-60 mb-10">
+                    <div className="flex justify-between md:gap-60 mb-10">
                         <p className="text-2xl font-bold">Total</p>
                         <p className="text-2xl">€{totalPrice > 69 ? totalPrice : basket.length === 0 ? totalPrice : totalPrice + 5.99}</p>
                     </div>

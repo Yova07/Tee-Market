@@ -13,6 +13,7 @@ const SingleProduct = () => {
     const [article, setArticle] = useState({});
     const [image, setImage] = useState();
     const [category, setCategory] = useState();
+    console.log(article);
 
     const upperCase = (category) => {
         const lowerCase = category.charAt(0).toUpperCase() + category.slice(1);
@@ -28,7 +29,7 @@ const SingleProduct = () => {
         }
 
         fetchProduct();
-    }, [])
+    }, [product])
 
     return (
         <div>
@@ -45,7 +46,7 @@ const SingleProduct = () => {
                     <SingleProductSlider article={article} image={image} setImage={setImage} />
                     <ProductDescription article={article} />
                 </div>
-                <ProductComments />
+                <ProductComments articleId={article._id} />
             </div>
             <Footer />
         </div>

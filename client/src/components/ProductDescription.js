@@ -4,14 +4,16 @@ import ServiceIcone from './ServiceIcone';
 import BasketButton from "./BasketButton";
 import ProductAdvice from "./ProductAdvice";
 import CreateComment from "./CreateComment";
+import Stars from "./Stars";
+import axios from "axios";
 
 
 const ProductDescription = ({ article }) => {
 
     const firstDate = new DateObject();
-    firstDate.day +=3;
+    firstDate.day += 3;
     const secondDate = new DateObject();
-    secondDate.day +=5;
+    secondDate.day += 5;
     const firstDateFormat = firstDate.format('dddd DD MMMM');
     const secondDateFormat = secondDate.format('dddd DD MMMM');
 
@@ -19,20 +21,24 @@ const ProductDescription = ({ article }) => {
     const [hideFeatures, setHideFeatures] = useState(false);
     const [active, setActive] = useState(false);
 
+    const updateNote = async (note) => {
+        try {
+            const response = await axios.patch(`/api/products/note/${article._id}`, { note })
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+
     return (
         <div className="md:mt-10 md:w-[900px] mx-auto">
             <div className="mb-10">
                 <div className='pl-5 sm:pl-0'>
-                    <h1 className="text-2xl mt-5 md:mt-0 font-bold sm:text-4xl mb-2">{article.name}</h1>
-                    <div className="mb-5 text-xl flex items-center">
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <p className="inline ml-2 text-sm">(0)</p>
+                    <h1 className="text-2xl mt-5 md:mt-0 font-bold sm:text-4xl">{article.name}</h1>
+                    <div >
+                        <Stars productId={article._id} />
                     </div>
-                    <p className="text-2xl sm:text-3xl"><span className="text-3xl ml-1">€</span>{article.price}</p>
+                    <p className="text-2xl sm:text-3xl mt-3"><span className="text-3xl ml-1">€</span>{article.price}</p>
                     <p className="text-gray-500 text-sm">Incl. VAT</p>
                     <div className="flex items-center mt-3">
                         <div className="h-2 w-2 rounded-full bg-green-700 mr-2"></div>
@@ -59,7 +65,7 @@ const ProductDescription = ({ article }) => {
                     ))}
                 </ul>
             </div>
-            <ProductAdvice setActive={setActive} active={active} />
+            <ProductAdvice setActive={setActive} active={active} productId={article._id} updateNote={updateNote} />
             <CreateComment active={active} setActive={setActive} articleId={article._id} />
         </div>
     )

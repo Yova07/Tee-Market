@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const CreateComment = ({ active, setActive, articleId }) => {
+const CreateComment = ({ active, setActive, articleId, note }) => {
 
     const [stars, setStars] = useState(10);
     const [shortTitle, setShortTitle] = useState();
@@ -13,8 +13,6 @@ const CreateComment = ({ active, setActive, articleId }) => {
         }
         if (stars === 0 || stars === 10) {
             setStars(0);
-        } else {
-            setStars(10);
         }
     }
 
@@ -26,20 +24,19 @@ const CreateComment = ({ active, setActive, articleId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-            try {
+        try {
 
-                const getComment = {
-                    articleId,
-                    stars,
-                    shortTitle,
-                    comment
-                };
-                
-                const response = await axios.post('/api/products/comment', getComment);
-                console.log(response);
-            } catch (error) {
-                console.log(error)
-            }
+            const getComment = {
+                stars,
+                shortTitle,
+                comment
+            };
+
+            const response = await axios.post(`/api/comments/${articleId}/create`, getComment);
+            setStars(10);
+        } catch (error) {
+            console.log(error)
+        }
 
     }
 

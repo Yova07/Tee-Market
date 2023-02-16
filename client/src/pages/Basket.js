@@ -13,7 +13,7 @@ const Basket = () => {
                 <div className="lg:w-1/2 w-full">
                     <BasketArticle />
                 </div>
-                <div>
+                <div className="lg:w-auto w-full">
                     <Summary />
                 </div>
             </div>

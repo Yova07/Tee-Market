@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import NavbarCategories from "./NavbarCategories";
-import Login from "./Login";
-import { useContext, useState } from "react";
-import { basketContext } from "../context/BasketContext";
+import LoginPannel from "./LoginPannel";
+import { useState } from "react";
+import { useBasketContext } from "../context/BasketContext";
+import UserInfos from "./UserInfos";
+import { useAuthContext } from "../context/UserContext";
 
 const Navbar = () => {
 
-    const [active, setActive] = useState(false);
-    const { basket } = useContext(basketContext);
+    
+    const { user, active, setActive } = useAuthContext();
+    const { basket } = useBasketContext();
 
     const handleClick = () => {
         setActive(!active);
@@ -29,13 +32,18 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <Searchbar />
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center ml-6">
                     <div className="lg:flex items-center w-52 ml-6 hidden">
                         <i className="fa-solid fa-phone text-white mr-2"></i>
                         <p className="text-white mr-6">(+32) 484 34 78 23</p>
                     </div>
                     <Link onClick={handleClick}>
-                        <i class="fa-regular fa-user text-white text-xl md:text-2xl md:ml-10 lg:ml-0 rounded-full py-[7px] md:py-2 px-[9px] md:px-[13px]  hover:text-red-900 transition-all"></i>
+                        <div className="relative">
+                            <i className={`fa-regular fa-user text-white text-xl md:text-2xl md:ml-10 lg:ml-0 z-30 py-[7px] md:py-2 px-[9px] md:px-[13px]  hover:text-red-900 transition-all ${user && active ? 'bg-white text-black rounded-t-xl' : ''}`}></i>
+                            {user && (
+                                <UserInfos active={active}/>
+                            )}
+                        </div>
                     </Link>
                     <Link to='/basket'>
                         <i className="fa-solid fa-cart-shopping text-white text-xl md:text-2xl ml-3 md:ml-6 lg:hover:text-red-900 transition-all"></i>
@@ -44,7 +52,9 @@ const Navbar = () => {
                 </div>
             </div >
             <NavbarCategories />
-            <Login active={active} setActive={setActive} />
+            {!user && (
+                <LoginPannel active={active} setActive={setActive} />
+            )}
         </header>
     )
 }

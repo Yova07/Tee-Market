@@ -6,18 +6,18 @@ import Categories from './pages/Categories';
 import Register from './pages/Register';
 import SingleProduct from './pages/SingleProduct';
 import Basket from './pages/Basket';
-import { basketContext } from './context/BasketContext';
-import { useState } from 'react';
-
+import UserPannel from './pages/UserPannel';
+import UserProfil from './components/UserProfil';
+import UserFavorites from './components/UserFavorites';
+import { useAuthContext } from './context/UserContext';
 
 function App() {
 
-  const [basket, setBasket] = useState([]);
+  const { user } = useAuthContext();
 
   return (
     <div className="App">
       <div>
-        <basketContext.Provider value={{ basket, setBasket }}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/category/:category' element={<Categories />} />
@@ -26,8 +26,11 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/product/:product' element={<SingleProduct />} />
             <Route path='/basket' element={<Basket />} />
+            <Route path='/user' element={<UserPannel />} >
+              <Route path='profil' element={<UserProfil />} />
+              <Route path='favorites' element={<UserFavorites />} />
+            </Route>
           </Routes>
-        </basketContext.Provider>
       </div>
     </div >
   );
