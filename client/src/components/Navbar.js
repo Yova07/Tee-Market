@@ -12,6 +12,7 @@ const Navbar = () => {
     
     const { user, active, setActive } = useAuthContext();
     const { basket } = useBasketContext();
+    const [menuActive, setMenuActive] = useState(false);
 
     const handleClick = () => {
         setActive(!active);
@@ -21,16 +22,17 @@ const Navbar = () => {
         <header className="w-full bg-black z-20 md:pt-5 pt-4 pb-1 md:pb-0 h-28 md:h-auto">
             <div className="flex justify-between w-11/12 mx-auto md:w-full items-center md:px-10 mb-5">
                 <Link to="/">
-                    <h1 className="text-white text-3xl lg:text-5xl font-['Lobster'] hover:text-red-900 transition-all">Music</h1>
+                    <h1 className="text-white text-3xl lg:text-5xl font-['Lobster'] lg:hover:text-red-900 transition-all">Music</h1>
                 </Link>
                 <div className="flex mx-10">
                     <Link to="/about">
-                        <p className="text-white text-sm md:text-base mr-5 sm:mr-10 opacity-70 hover:opacity-100 hover:text-red-900 transition-all">About</p>
+                        <p className="text-white text-sm md:text-base mr-5 sm:mr-10 opacity-70 lg:hover:opacity-100 lg:hover:text-red-900 transition-all">About</p>
                     </Link>
-                    <Link>
-                        <p className="text-white text-sm md:text-base opacity-70 hover:opacity-100 hover:text-red-900 transition-all">Help</p>
+                    <Link to='/help'>
+                        <p className="text-white text-sm md:text-base opacity-70 lg:hover:opacity-100 lg:hover:text-red-900 transition-all">Help</p>
                     </Link>
                 </div>
+                <i className="fa-solid fa-bars  text-white absolute md:hidden text-2xl left-5 top-16" onClick={() => setMenuActive(!menuActive)}></i>
                 <Searchbar />
                 <div className="flex justify-center items-center ml-6">
                     <div className="lg:flex items-center w-52 ml-6 hidden">
@@ -39,7 +41,7 @@ const Navbar = () => {
                     </div>
                     <Link onClick={handleClick}>
                         <div className="relative">
-                            <i className={`fa-regular fa-user text-white text-xl md:text-2xl md:ml-10 lg:ml-0 z-30 py-[7px] md:py-2 px-[9px] md:px-[13px]  hover:text-red-900 transition-all ${user && active ? 'bg-white text-black rounded-t-xl' : ''}`}></i>
+                            <i className={`fa-regular fa-user text-white text-xl md:text-2xl md:ml-10 lg:ml-0 z-30 py-[7px] md:py-2 px-[9px] md:px-[13px]  lg:hover:text-red-900 transition-all`}></i>
                             {user && (
                                 <UserInfos active={active}/>
                             )}
@@ -47,11 +49,11 @@ const Navbar = () => {
                     </Link>
                     <Link to='/basket'>
                         <i className="fa-solid fa-cart-shopping text-white text-xl md:text-2xl ml-3 md:ml-6 lg:hover:text-red-900 transition-all"></i>
-                        <div className={`text-white absolute top-10 ${basket.length === 0 ? 'hidden' : 'block'} right-8 bg-red-900 rounded-full text-xs py-1 px-2`}>{basket.length}</div>
+                        <div className={`text-white absolute top-9 md:top-10 ${basket.length === 0 ? 'hidden' : 'block'} right-6  md:right-8 bg-red-900 rounded-full text-xs py-[1px] px-[7px]`}>{basket.length}</div>
                     </Link>
                 </div>
             </div >
-            <NavbarCategories />
+            <NavbarCategories menuActive={menuActive} setMenuActive={setMenuActive} />
             {!user && (
                 <LoginPannel active={active} setActive={setActive} />
             )}

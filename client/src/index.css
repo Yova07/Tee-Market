@@ -27,14 +27,6 @@ body {
   transition: all 0.1s;
 }
 
-.card:hover .img {
-  padding: 10px;
-}
-
-.card:hover .title {
-  color: red;
-}
-
 .carousel button {
   transition: 0.3s;
 }
@@ -116,5 +108,15 @@ body {
   .header {
     background-image: linear-gradient(120deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%), url('./assets/images/caught-in-joy-ptVBlniJi50-unsplash.jpg');
     background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card:hover .img {
+    padding: 10px;
+  }
+
+  .card:hover .title {
+    color: red;
   }
 }

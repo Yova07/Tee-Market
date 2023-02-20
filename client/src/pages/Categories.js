@@ -97,15 +97,14 @@ const Categories = () => {
 
     return (
         <div>
-            <Navbar />
-            <div data-aos='fade up' className="max-w-[1440px] w-11/12 mx-auto">
-                <div className="flex items-center gap-5 mt-5">
+            <div data-aos='fade-up' data-aos-delay='50' className="max-w-[1440px] w-11/12 mx-auto">
+                <div className="flex items-center gap-5 mt-5 text-sm md:text-base">
                     <Link to='/' className="opacity-70 hover:opacity-100">Home</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
                     <p className="font-bold">{categoryTitle}</p>
                 </div>
                 {/* <ServiceIcone /> */}
-                <h1 className="mt-10 pb-5 text-5xl w-full mx-auto font-bold">{categoryTitle}</h1>
+                <h1 className="mt-10 pb-5 text-3xl md:text-5xl w-full mx-auto font-bold">{categoryTitle}</h1>
                 <div className="flex items-end full justify-between border-b pb-3">
                     <p className="text-lg" onClick={() => setHideFilter(!hideFilter)}><i class="fa-solid fa-sliders mr-1"></i>Filter</p>
                     <select className="w-40 text-lg p-1 bg-zinc-50 rounded" onChange={(e) => handleSelectChange(e.target.value)}>

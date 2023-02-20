@@ -4,10 +4,11 @@ import Stars from "./Stars";
 const ProductsByCategory = ({ productsByCategory }) => {
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5 col-start-2 col-end-6 min-h-screen">
+        <div className="col-start-2 col-end-6 min-h-screen">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5">
             {productsByCategory.map((product) => (
                 <Link key={product._id} to={`/product/${product.name}`}>
-                    <div data-aos='fade-up' className="card rounded-md  mx-auto transition-all cursor-pointer bg-white">
+                    <div data-aos='fade-up' data-aos-delay='50' className="card rounded-md  mx-auto transition-all cursor-pointer bg-white">
                         {/* <div className="img w-full h-48 rounded-t-md" style={{ backgroundImage: `url(${(product.image)})` }}></div> */}
                         <div className="max-h-72 relative">
                             <img className="img h-full mx-auto p-4 hover:p-2 transition-all" src={product.image[0]}></img>
@@ -26,6 +27,7 @@ const ProductsByCategory = ({ productsByCategory }) => {
                     </div>
                 </Link>
             ))}
+            </div>
         </div>
     )
 }

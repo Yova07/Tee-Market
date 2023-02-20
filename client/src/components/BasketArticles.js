@@ -37,12 +37,12 @@ const BasketArticle = () => {
             <div>
                 <h1 className="text-3xl border-b mb-10 pb-5">Your cart</h1>
                 <div className="relative">
-                    <p className="text-2xl absolute top-20 left-1/2 -translate-x-1/2 text-center font-['Lobster']">There's nothing in your cart</p>
+                    <p className="text-2xl absolute md:top-20 left-1/2 -translate-x-1/2 text-center font-['Lobster']">There's nothing in your cart</p>
                     <Player
                         autoplay
                         loop
                         src="https://assets4.lottiefiles.com/packages/lf20_NeuXI2OPLG.json"
-                        style={{ height: '500px', width: '500px' }}
+                        style={{ height: '100%', width: '100%' }}
                     >
                         <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
                     </Player>
@@ -58,7 +58,7 @@ const BasketArticle = () => {
                         <Link to={`/product/${article.name}`}>
                             <div className="flex items-center">
                                 <div className="relative w-32 p-2 flex justify-center items-center">
-                                    <img src={article.image[0]}></img>
+                                    <img src={article.image}></img>
                                     <div className='absolute top-0 w-full h-full bg-gray-500 opacity-5'></div>
                                 </div>
                                 <div className="pl-5">

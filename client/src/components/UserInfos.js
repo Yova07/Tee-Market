@@ -8,7 +8,7 @@ const UserInfos = ({ active }) => {
     const { user } = useAuthContext();
 
     return (
-        <div className={`absolute bg-white top-12 right-0 z-30 w-56 shadow-xl rounded-b-xl rounded-tl-xl overflow-hidden transition-all cursor-default ${active ? 'max-h-72' : 'max-h-0'}`}>
+        <div className={`absolute bg-white top-10 md:top-12 -right-10 md:right-0 z-50 w-56 shadow-xl rounded-xl overflow-hidden transition-all cursor-default ${active ? 'max-h-72' : 'max-h-0'}`}>
             <div className="flex flex-col items-center mt-4">
                 <div className="bg-violet-700 w-16 h-16 flex justify-center items-center font-bold rounded-full text-white text-3xl">{user.firstName.charAt(0).toUpperCase() + user.lastName.charAt(0).toUpperCase()}</div>
                 <p className="py-2 border-b mb-2">{user.email}</p>

@@ -48,11 +48,11 @@ const Trend = () => {
 
     return (
         <div className='bg-zinc-50'>
-            <div data-aos='fade up' className="pt-10 md:pt-20">
+            <div className="py-10 md:py-20">
                 <h1 className="text-3xl md:text-4xl max-w-[1440px] w-11/12 mx-auto text-center sm:text-left mb-10"><span className="font-bold text-red-900">Popular</span> on <span className="font-['Lobster'] text-3xl md:text-4xl" >Music</span></h1>
                 <Carousel
-                    customRightArrow={<button className='bg-zinc-700 hover:bg-red-900 w-10 h-10 absolute top-1/2 right-0'><i class="fa-solid fa-chevron-right  text-white"></i></button>}
-                    customLeftArrow={<button className='bg-zinc-700 hover:bg-red-900 w-10 h-10 absolute top-1/2 left-0'><i class="fa-solid fa-chevron-left text-white"></i></button>}
+                    customRightArrow={<button className='bg-zinc-700 hover:bg-red-900 lg:block hidden w-10 h-10 absolute top-1/2 right-0'><i class="fa-solid fa-chevron-right  text-white"></i></button>}
+                    customLeftArrow={<button className='bg-zinc-700 hover:bg-red-900 lg:block hidden w-10 h-10 absolute top-1/2 left-0'><i class="fa-solid fa-chevron-left text-white"></i></button>}
                     infinite={true}
                     autoPlay={true}
                     autoPlaySpeed={5000}
@@ -72,7 +72,7 @@ const Trend = () => {
                                         <h1 className="title flex items-center h-10 text-base transition-all">{product.name}</h1>
                                         <Stars productId={product._id} />
                                     </div>
-                                    <p className=" text-lg md:text-lg h-20">{product.price}€</p>
+                                    <p className=" text-lg md:text-lg">{product.price}€</p>
                                 </div>
                             </div>
                         </Link>

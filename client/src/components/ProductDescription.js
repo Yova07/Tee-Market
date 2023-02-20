@@ -33,12 +33,12 @@ const ProductDescription = ({ article }) => {
     return (
         <div className="md:mt-10 md:w-[900px] mx-auto">
             <div className="mb-10">
-                <div className='pl-5 sm:pl-0'>
+                <div className='md:pl-5 sm:pl-0'>
                     <h1 className="text-2xl mt-5 md:mt-0 font-bold sm:text-4xl">{article.name}</h1>
                     <div >
                         <Stars productId={article._id} />
                     </div>
-                    <p className="text-2xl sm:text-3xl mt-3"><span className="text-3xl ml-1">€</span>{article.price}</p>
+                    <p className="text-2xl sm:text-3xl mt-3"><span className="text-2xl md:text-3xl">€</span>{article.price}</p>
                     <p className="text-gray-500 text-sm">Incl. VAT</p>
                     <div className="flex items-center mt-3">
                         <div className="h-2 w-2 rounded-full bg-green-700 mr-2"></div>

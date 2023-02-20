@@ -19,7 +19,6 @@ const Home = () => {
 
     return (
         <section className="min-h-screen">
-            <Navbar />
             <Header />
             <NewProducts />
             <Banner />

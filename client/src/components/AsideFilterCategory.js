@@ -6,8 +6,8 @@ const AsideFilterCategory = ({ setMaxValue, setMinValue, minValue, maxValue, set
         <div>
             <div className={`md:h-screen bg-white md:bg-none top-1/2 -translate-y-1/2 w-10/12 px-10 md:px-0 mx-auto py-10 md:py-0 md:col-start-1 md:col-end-2 fixed md:relative ${hideFilter ? 'right-1/2 md:left-0 translate-x-1/2' : '-right-full md:right-auto'} z-20 transition-all duration-500`}>
                 <div className={`w-full sticky top-10 mx-auto`}>
-                    <i class="fa-solid fa-xmark absolute -left-10 -top-10 text-2xl cursor-pointer block md:hidden" onClick={() => setHideFilter(!hideFilter)}></i>
-                    <h3 className="mb-10 font-bold">Price</h3>
+                    <i class="fa-solid fa-xmark absolute -left-5 -top-12 text-2xl cursor-pointer block md:hidden" onClick={() => setHideFilter(!hideFilter)}></i>
+                    <h3 className="mb-5 mt-5 md:mt-0 md:mb-10 font-bold">Price</h3>
                     <div className="bg-gray-200 h-2 w-full relative rounded-full">
                         <div className="h-2 right-0 absolute top-0 left-0 rounded-full" style={{ background: `linear-gradient(90deg, rgba(255, 0, 0, 0) ${minValue / 50}%, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) ${(maxValue / 50)}%, rgba(255, 0, 0, 0) ${(maxValue / 50)}%)` }}>
                             <input className="slider absolute -top-1 appearance-none right-0 left-0 " min='0' max="5000" value={minValue} type="range" onChange={(e) => setMinValue(e.target.value)}></input>

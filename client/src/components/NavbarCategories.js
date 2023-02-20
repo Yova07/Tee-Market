@@ -1,44 +1,46 @@
 import { Link } from "react-router-dom";
 
-const NavbarCategories = () => {
+const NavbarCategories = ({ menuActive, setMenuActive }) => {
 
     return (
-        <div className="wrapper w-full bg-zinc-900 hidden md:flex items-center overflow-auto">
+        <div className={`wrapper bg-zinc-900 fixed h-screen transition-all md:h-10 z-40 top-0 ${menuActive ? 'w-screen' : 'w-0 md:w-full'} md:relative md:flex items-center overflow-auto`}>
+            <i className="fa-solid fa-xmark absolute text-white md:hidden text-xl top-4 right-6" onClick={() => setMenuActive(!menuActive)}></i>
+            <h1 className="text-white px-7 mt-10 text-5xl font-['Lobster'] md:hidden">Categories</h1>
             <Link to='/category/audio-interface'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Audio Interfaces</p>
+                <p className="text-white md:px-5 py-4 w-10/12 mx-auto mt-10 md:mt-0 md:opacity-60 lg:hover:opacity-100 md:w-full lg:hover:bg-red-900 border-b border-zinc-600 mb-2 md:mb-0 md:border-none transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Audio Interfaces</p>
             </Link>
             <Link to="/category/studio-monitors">
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Studio Monitors</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Studio Monitors</p>
             </Link>
             <Link to='/category/microphones'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Microphones</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Microphones</p>
             </Link>
             <Link to='/category/preamps'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Preamps</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Preamps</p>
             </Link>
             <Link to='/category/headphones'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Headphones</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Headphones</p>
             </Link>
             <Link to='/category/acoustic-treatment'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Acoustic Treatment</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Acoustic Treatment</p>
             </Link>
             <Link to='/category/controllers'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Controllers</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Controllers</p>
             </Link>
             <Link to='/category/effects-and-signal-processors'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Effects and Signal Processors</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Effects and Signal Processors</p>
             </Link>
             <Link to='/category/midi-equipement'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">MIDI Equipement</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>MIDI Equipement</p>
             </Link>
             <Link to='/category/mixing-consoles'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Mixing Consoles</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Mixing Consoles</p>
             </Link>
             <Link to='/category/studio-accessories'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Studio Accessories</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Studio Accessories</p>
             </Link>
             <Link to='/category/studio-software'>
-                <p className="text-white px-5 py-2 opacity-60 hover:opacity-100 w-full hover:bg-red-900 hover:text-white transition-all whitespace-nowrap">Studio Software</p>
+                <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Studio Software</p>
             </Link>
         </div>
     )

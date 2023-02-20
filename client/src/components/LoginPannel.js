@@ -12,7 +12,7 @@ const LoginPannel = ({ active, setActive }) => {
 
     return (
         <div>
-            <div className={`login fixed top-0 h-screen z-40 w-screen sm:w-[500px] bg-white ${active ? 'right-0' : '-right-[550px]'} ${active ? 'active' : ''} transition-all delay-50 duration-500`}>
+            <div className={`login fixed  top-0 min-h-screen z-40 w-screen sm:w-[500px] bg-white ${active ? 'right-0' : '-right-[550px]'} ${active ? 'active' : ''} transition-all delay-50 duration-500`}>
                 <i class="fa-solid fa-xmark absolute left-5 top-5 text-2xl cursor-pointer" onClick={handleClick}></i>
                 <Login hide={hide} setHide={setHide} active={active} setActive={setActive} />
                 <Signup hide={hide} setHide={setHide} active={active} setActive={setActive} />

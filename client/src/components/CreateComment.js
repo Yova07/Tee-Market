@@ -42,7 +42,7 @@ const CreateComment = ({ active, setActive, articleId, note }) => {
 
     return (
         <div className={`${active ? 'block' : 'hidden'}`}>
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[600px] rounded-sm">
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-11/12 sm:w-[600px] rounded-sm">
                 <i className="fa-solid fa-xmark absolute text-xl top-2 left-3 cursor-pointer" onClick={handleClick}></i>
                 <form className="bg-white flex flex-col p-10" onSubmit={handleSubmit}>
                     <h1 className="text-2xl border-b pb-2 mb-8">Share your experience</h1>

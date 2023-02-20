@@ -62,9 +62,9 @@ const BillingAdress = () => {
     }, [user])
 
     return (
-        <div className="bg-gray-50 basis-1/3 p-10 shadow flex justify-between items-start">
+        <div className="bg-white basis-1/3 p-10 shadow-lg border rounded-lg  flex justify-between items-start">
             <div>
-                <h1 className="mb-10 text-3xl">Billing Adress</h1>
+                <h1 className="mb-10 text-2xl md:text-3xl">Billing Adress</h1>
                 <p className={`opacity-60 ${Object.keys(user.adressFacturation).length === 0 ? 'block' : 'hidden'}`}>There is no address registered yet.</p>
                 <div className="opacity-60">
                     <p>{user.adressFacturation.lastName} {user.adressFacturation.firstName}</p>
@@ -75,7 +75,7 @@ const BillingAdress = () => {
                 </div>
             </div>
             <i className="fa-solid fa-pen p-3 transition-all cursor-pointer opacity-70 rounded-full hover:opacity-100 hover:bg-gray-200" onClick={toggle}></i>
-            <form className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-20 px-5 py-10 flex flex-col w-[600px] rounded ${hideDelivery ? 'block' : 'hidden'}`} onSubmit={handleSubmit}>
+            <form className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-20 px-5 py-10 flex flex-col w-11/12 md:w-[600px] rounded ${hideDelivery ? 'block' : 'hidden'}`} onSubmit={handleSubmit}>
                 <i className="fa-solid fa-xmark absolute text-xl top-4 left-6 cursor-pointer" onClick={toggle}></i>
                 <h1 className="text-center border-b mb-6 pb-3">Billing Adress</h1>
                 <div className="flex gap-3">

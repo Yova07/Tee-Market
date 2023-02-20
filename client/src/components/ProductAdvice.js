@@ -23,15 +23,15 @@ const ProductAdvice = ({ setActive, active, productId, updateNote }) => {
         for (let star of stars) {
             switch (star.stars) {
                 case 1: oneStar.push(star.stars)
-                break;
+                    break;
                 case 2: twoStars.push(star.stars)
-                break;
+                    break;
                 case 3: treeStars.push(star.stars)
-                break;
+                    break;
                 case 4: fourStars.push(star.stars)
-                break;
+                    break;
                 case 5: fiveStars.push(star.stars)
-                break;
+                    break;
             }
         }
 
@@ -45,35 +45,30 @@ const ProductAdvice = ({ setActive, active, productId, updateNote }) => {
 
     const calcAverage = (stars) => {
         let sum = 0;
-        for(let star of stars) {
+        for (let star of stars) {
             sum += star.stars;
         }
 
-        if(stars.length === 0) {
+        if (stars.length === 0) {
             setNote(0)
         }
         else {
-            if((sum/ stars.length)%1 === 0) {
+            if ((sum / stars.length) % 1 === 0) {
                 setNote(sum / stars.length)
             } else {
                 setNote((sum / stars.length).toFixed(1))
             }
-            
+
             updateNote((sum / stars.length));
         }
-        
+
     }
 
     useEffect(() => {
         const fetch = async () => {
-            try {
-                const response = await axios.get(`/api/comments/stars/${productId}`);
-                calcAverageStars(response.data)
-                calcAverage(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-
+            const response = await axios.get(`/api/comments/stars/${productId}`);
+            calcAverageStars(response.data)
+            calcAverage(response.data);
         }
         fetch();
     }, [productId])

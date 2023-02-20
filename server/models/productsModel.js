@@ -11,6 +11,10 @@ const productsSchema = new Schema({
         type: String,
         required: true
     },
+    searchName: {
+        type: String,
+        required: true
+    },
     price: {
         type: Number,
         requireed: true
@@ -29,28 +33,14 @@ const productsSchema = new Schema({
         type: Number,
         required: true
     },
-    comment: {
-        type: Array,
-        required: false
+    note: {
+        type: Number,
+        required: true
     }
-     
-}, 
-{
-    timestamps: true
-})
-
-productsSchema.static.addComment = async function (articleId, stars, shortTitle, comment) {
-
-    const product = await this.findOne({ _id: articleId });
-
-    const newComment = await product.comment.push({
-        stars, 
-        shortTitle,
-        comment
+},
+    {
+        timestamps: true
     })
-
-    return newComment;
-}
 
 module.exports = mongoose.model('Products', productsSchema);
 

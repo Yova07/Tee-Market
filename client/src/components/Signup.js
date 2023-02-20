@@ -40,7 +40,7 @@ const Signup = ({ hide, setHide, active, setActive }) => {
     }
 
     return (
-        <div>
+        <div className="pb-32">
             <h1 className="text-3xl w-4/5 mx-auto font-bold mt-5">Are you new here ?</h1>
             <button onClick={() => setHide(!hide)} className={`w-4/5 mx-auto border-2 ${hide ? 'block' : 'hidden'} mt-5 border-black text-lg opacity-30 hover:bg-black hover:text-white transition-all py-1`}>Sign up</button>
             <form onSubmit={handleSubmit} className={`flex flex-col justify-center ${hide ? 'h-0' : 'h-[570px]'} overflow-hidden duration-300 transition-all items-center w-4/5 mx-auto`}>

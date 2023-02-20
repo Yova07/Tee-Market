@@ -1,7 +1,7 @@
 const Header = () => {
 
     return (
-        <div data-aos='fade up' className="header h-96 md:h-[600px] flex items-center">
+        <div data-aos='fade' data-aos-delay='50' className="header h-80 md:h-[600px] flex items-center">
             <div className="max-w-[1440px] sm:w-11/12 w-9/12 ml-5 sm:mx-auto">
                 <h1 className="text-white md:text-6xl text-3xl font-['Anton']">Find the better way</h1>
                 <h1 className="text-red-900 md:text-6xl text-3xl font-['Cutive Mono'] mt-3 md:mt-5 mb-6 md:mb-16">To be creative</h1>

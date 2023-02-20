@@ -33,14 +33,13 @@ const SingleProduct = () => {
 
     return (
         <div>
-            <Navbar />
-            <div data-aos='fade up' className="max-w-[1440px] w-11/12 mx-auto min-h-screen">
+            <div data-aos='fade' data-aos-delay='50' className="max-w-[1440px] w-11/12 mx-auto min-h-screen">
                 <div className="flex items-center gap-5 mt-5">
-                    <Link to='/' className="opacity-70 hover:opacity-100">Home</Link>
+                    <Link to='/' className="opacity-70 hover:opacity-100 text-sm md:text-base">Home</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
-                    <Link to={`/category/${article.category}`} className="opacity-70 hover:opacity-100">{category}</Link>
+                    <Link to={`/category/${article.category}`} className="opacity-70 hover:opacity-100 md:text-base text-sm">{category}</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
-                    <p className="font-bold">{article.name}</p>
+                    <p className="font-bold md:text-base text-sm">{article.name}</p>
                 </div>
                 <div className="flex flex-col md:flex-row">
                     <SingleProductSlider article={article} image={image} setImage={setImage} />
