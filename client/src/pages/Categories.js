@@ -101,11 +101,11 @@ const Categories = () => {
                 <div className="flex items-center gap-5 mt-5 text-sm md:text-base">
                     <Link to='/' className="opacity-70 hover:opacity-100">Home</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
-                    <p className="font-bold">{categoryTitle}</p>
+                    <p className="font-bold">{categoryTitle.split('-').join(' ')}</p>
                 </div>
                 {/* <ServiceIcone /> */}
-                <h1 className="mt-10 pb-5 text-3xl md:text-5xl w-full mx-auto font-bold">{categoryTitle}</h1>
-                <div className="flex items-end full justify-between border-b pb-3">
+                <h1 className="mt-10 pb-5 text-3xl md:text-5xl w-full mx-auto font-bold">{categoryTitle.split('-').join(' ')}</h1>
+                <div className="flex items-end justify-between border-b pb-3">
                     <p className="text-lg" onClick={() => setHideFilter(!hideFilter)}><i class="fa-solid fa-sliders mr-1"></i>Filter</p>
                     <select className="w-40 text-lg p-1 bg-zinc-50 rounded" onChange={(e) => handleSelectChange(e.target.value)}>
                         <option value='popularity' selected>Popularity</option>
@@ -115,7 +115,7 @@ const Categories = () => {
                     </select>
                 </div>
 
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mt-10">
+                <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mt-10 auto-rows-auto">
                     <AsideFilterCategory
                         setMinValue={setMinValue}
                         setMaxValue={setMaxValue}

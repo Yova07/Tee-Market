@@ -79,7 +79,7 @@ const BasketButton = ({ article }) => {
     return (
         <div className="flex flex-col items-center justify-between mb-10 md:pl-5 sm:pl-0">
             <div className="flex w-full">
-                <button className="py-2 basis-full text-base sm:text-lg bg-red-900 hover:bg-red-800 shadow-lg hover:shadow-xl transition-all text-white font-bold" onClick={handleBasket}><i class="fa-solid fa-cart-shopping pr-5"></i>Add to Cart</button>
+                <button className="py-2 basis-full text-base sm:text-lg bg-red-900 lg:hover:bg-red-800 shadow-lg hover:shadow-xl transition-all text-white font-bold" onClick={handleBasket}><i class="fa-solid fa-cart-shopping pr-5"></i>Add to Cart</button>
                 <ToastContainer
                     position="bottom-right"
                     autoClose={5000}

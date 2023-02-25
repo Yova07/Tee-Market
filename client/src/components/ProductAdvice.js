@@ -10,7 +10,6 @@ const ProductAdvice = ({ setActive, active, productId, updateNote }) => {
     const [fiveStars, setFiveStars] = useState();
     const [opinionNumber, setOpinionNumber] = useState();
     const [note, setNote] = useState();
-    console.log(note);
 
 
     const calcAverageStars = async (stars) => {
@@ -107,7 +106,7 @@ const ProductAdvice = ({ setActive, active, productId, updateNote }) => {
                     <div className="h-1 w-full absolute top-0 left-0" style={{ background: `linear-gradient(to right, rgba(127, 29, 29, 1) ${oneStar}%, rgba(229, 231, 235, 0) 0%)` }}></div>
                 </div>
             </div>
-            <button className="border-2 border-red-900 py-2 w-full font-bold mx-auto text-red-900 rounded-sm mt-10 hover:bg-red-900 hover:text-white transition-all" onClick={() => setActive(!active)}>Share your experience</button>
+            <button className="border-2 border-red-900 py-2 w-full font-bold mx-auto text-red-900 rounded-sm mt-10 lg:hover:bg-red-900 hover:text-white transition-all" onClick={() => setActive(!active)}>Share your experience</button>
         </div>
 
     )

@@ -37,7 +37,7 @@ const SingleProduct = () => {
                 <div className="flex items-center gap-5 mt-5">
                     <Link to='/' className="opacity-70 hover:opacity-100 text-sm md:text-base">Home</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
-                    <Link to={`/category/${article.category}`} className="opacity-70 hover:opacity-100 md:text-base text-sm">{category}</Link>
+                    <Link to={`/category/${article.category}`} className="opacity-70 hover:opacity-100 md:text-base text-sm">{category && category.split('-').join(' ')}</Link>
                     <i className="fa-solid fa-chevron-right text-xs opacity-70"></i>
                     <p className="font-bold md:text-base text-sm">{article.name}</p>
                 </div>

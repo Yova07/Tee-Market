@@ -24,9 +24,9 @@ const NewProducts = () => {
     }, [])
 
     return (
-        <div data-aos='fade' data-aos-delay='50' className=" mx-auto py-10 md:py-20 bg-white max-w-[1440px]  w-11/12">
+        <div data-aos='fade' data-aos-delay='50' data-aos-once='true' className=" mx-auto py-10 md:py-20 bg-white max-w-[1440px]  w-11/12">
             <h1 className="text-3xl md:text-4xl mb-10 text-center sm:text-left"><span className="font-bold text-red-900">New</span> on <span className="font-['Lobster'] text-3xl md:text-4xl" >Music</span></h1>
-            <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 transition-all duration-500 ease-in overflow-hidden ${hide ? 'max-h-[1200px]' : 'max-h-[550px] md:max-h-full'}`}>
+            <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 transition-all duration-500 ease-in overflow-hidden ${hide ? 'max-h-[2600px]' : 'max-h-[550px] md:max-h-full'}`}>
                 {products.map((product) => (
                     <Link key={product._id} to={`/product/${product.name}`}>
                         <div className="card transition-all cursor-pointer bg-white">
@@ -38,7 +38,7 @@ const NewProducts = () => {
                             </div>
                             <div>
                                 <div className='flex flex-wrap-reverse md:flex-nowrap items-center justify-between'>
-                                    <h1 className="title flex items-start w-48 h-10 text-base transition-all">{product.name}</h1>
+                                    <h1 className="title flex items-center mr-2 w-48 h-10 text-sm transition-all">{product.name}</h1>
                                     <Stars productId={product._id} />
                                 </div>
 

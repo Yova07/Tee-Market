@@ -12,11 +12,11 @@ const HomeInfos = () => {
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold mb-5">Always the lowest price</h3>
+                    <h3 className="text-2xl font-bold mb-5">About us</h3>
                     <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget felis eget nunc lobortis mattis aliquam. Magna etiam tempor orci eu lobortis. Sed enim ut sem viverra aliquet eget sit amet tellus. Ac turpis egestas integer eget aliquet nibh praesent tristique.</p>
                 </div>
                 <div>
-                    <h3 className="text-2xl font-bold mb-5">What's our goal ?</h3>
+                    <h3 className="text-2xl font-bold mb-5">Who support us</h3>
                     <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget felis eget nunc lobortis mattis aliquam. Magna etiam tempor orci eu lobortis. Sed enim ut sem viverra aliquet eget sit amet tellus. Ac turpis egestas integer eget aliquet nibh praesent tristique.</p>
                 </div>
         </div>

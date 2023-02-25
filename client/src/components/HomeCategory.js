@@ -57,12 +57,12 @@ const HomeCategory = () => {
                     </div>
                 </Link>
                 <Link to='/category/studio-accessories'>
-                    <div className="bg h-full flex justify-center items-center rounded-sm text-white bg-[url(https://images.unsplash.com/photo-1569050937856-f2a05c0ab6f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80)]">
+                    <div className="bg h-full flex justify-center items-center rounded-sm text-white bg-[url(https://images.unsplash.com/photo-1598653222000-6b7b7a552625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)]">
                         <p className="z-10 text-xl sm:text-2xl mx-5">Studio Accessories</p>
                     </div>
                 </Link>
                 <Link to='/category/studio-software'>
-                    <div className="bg h-full flex justify-center items-center rounded-sm text-white bg-[url(https://images.unsplash.com/photo-1569050937856-f2a05c0ab6f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80)]">
+                    <div className="bg h-full flex justify-center items-center rounded-sm text-white bg-[url(https://images.unsplash.com/photo-1509310202330-aec5af561c6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1209&q=80)]">
                         <p className="z-10 text-xl sm:text-2xl mx-5">Studio Software</p>
                     </div>
                 </Link>

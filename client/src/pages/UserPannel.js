@@ -17,7 +17,7 @@ const UserPannel = () => {
     if (user) {
         return (
             <div>
-                <div className="min-h-[calc(100vh-300px)] max-w-[1440px] w-11/12 mx-auto flex flex-col items-center gap-10 pt-10">
+                <div className="h-[calc(100vh-10rem)] max-w-[1440px] w-11/12 mx-auto flex flex-col items-center gap-10 pt-10">
                     <UserNavbar />
                     <Outlet />
                 </div>

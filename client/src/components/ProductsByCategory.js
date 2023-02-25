@@ -4,19 +4,19 @@ import Stars from "./Stars";
 const ProductsByCategory = ({ productsByCategory }) => {
 
     return (
-        <div className="col-start-2 col-end-6 min-h-screen">
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5">
+        <div data-aos='fade-up' data-aos-delay='50' className="col-start-2 col-end-6 min-h-screen">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-4">
             {productsByCategory.map((product) => (
                 <Link key={product._id} to={`/product/${product.name}`}>
-                    <div data-aos='fade-up' data-aos-delay='50' className="card rounded-md  mx-auto transition-all cursor-pointer bg-white">
+                    <div className="card rounded-md  mx-auto transition-all cursor-pointer bg-white">
                         {/* <div className="img w-full h-48 rounded-t-md" style={{ backgroundImage: `url(${(product.image)})` }}></div> */}
-                        <div className="max-h-72 relative">
-                            <img className="img h-full mx-auto p-4 hover:p-2 transition-all" src={product.image[0]}></img>
+                        <div className="relative">
+                            <img className="img max-h-72 mx-auto p-4 hover:p-2 transition-all" src={product.image[0]}></img>
                             <div className="absolute top-0 w-full h-full bg-gray-500 opacity-5"></div>
                         </div>
                         <div>
-                            <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap">
-                                <h1 className="title flex items-center h-10 text-md transition-all">{product.name}</h1>
+                            <div className="flex justify-between items-center flex-wrap-reverse md:flex-nowrap overflow-hidden">
+                                <h1 className="title flex items-center h-10 text-sm transition-all">{product.name}</h1>
                                 <Stars productId={product._id} />
                             </div>
                             <div className="h-20">

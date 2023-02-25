@@ -40,10 +40,10 @@ const Signup = ({ hide, setHide, active, setActive }) => {
     }
 
     return (
-        <div className="pb-32">
+        <div>
             <h1 className="text-3xl w-4/5 mx-auto font-bold mt-5">Are you new here ?</h1>
             <button onClick={() => setHide(!hide)} className={`w-4/5 mx-auto border-2 ${hide ? 'block' : 'hidden'} mt-5 border-black text-lg opacity-30 hover:bg-black hover:text-white transition-all py-1`}>Sign up</button>
-            <form onSubmit={handleSubmit} className={`flex flex-col justify-center ${hide ? 'h-0' : 'h-[570px]'} overflow-hidden duration-300 transition-all items-center w-4/5 mx-auto`}>
+            <form onSubmit={handleSubmit} className={`flex flex-col justify-center ${hide ? 'h-0' : 'h-[600px]'} overflow-hidden duration-300 transition-all items-center w-4/5 mx-auto`}>
                 <div className="flex flex-col w-full mt-5">
                     <label className="mb-2" for='firstName'>First Name</label>
                     <input className={`border-2 p-1 ${error && firstName.length === 0 ? 'border-red-500' : ''}`} value={firstName} type='text' name='firsName' onChange={(e) => setFirstName(e.target.value)} />
@@ -68,7 +68,7 @@ const Signup = ({ hide, setHide, active, setActive }) => {
                     <button className={`bg-red-900 mt-5 w-full text-lg mx-auto py-2 text-white ${loading === true ? 'opacity-60 cursor-none' : ''}`}>Sign up</button>
                 </div>
                 <div className="w-full m-auto">
-                    <p className="text-xs text-gray-400"><span className="text-red-600">*</span>required fields</p>
+                    <p className="text-xs text-gray-400 mt-5"><span className="text-red-600">*</span>required fields</p>
                 </div>
             </form>
         </div>

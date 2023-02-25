@@ -4,8 +4,8 @@ const AsideFilterCategory = ({ setMaxValue, setMinValue, minValue, maxValue, set
 
     return (
         <div>
-            <div className={`md:h-screen bg-white md:bg-none top-1/2 -translate-y-1/2 w-10/12 px-10 md:px-0 mx-auto py-10 md:py-0 md:col-start-1 md:col-end-2 fixed md:relative ${hideFilter ? 'right-1/2 md:left-0 translate-x-1/2' : '-right-full md:right-auto'} z-20 transition-all duration-500`}>
-                <div className={`w-full sticky top-10 mx-auto`}>
+            <div className={`md:h-full bg-white md:bg-none top-1/2 -translate-y-1/2 w-10/12 px-10 md:px-0 mx-auto py-10 md:py-0 md:col-start-1 md:col-end-2 fixed md:relative ${hideFilter ? 'right-1/2 md:left-0 translate-x-1/2' : '-right-full md:right-auto'} z-20 transition-all duration-500`}>
+                <div className={`w-full relative mx-auto`}>
                     <i class="fa-solid fa-xmark absolute -left-5 -top-12 text-2xl cursor-pointer block md:hidden" onClick={() => setHideFilter(!hideFilter)}></i>
                     <h3 className="mb-5 mt-5 md:mt-0 md:mb-10 font-bold">Price</h3>
                     <div className="bg-gray-200 h-2 w-full relative rounded-full">

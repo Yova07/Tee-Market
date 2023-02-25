@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const NavbarCategories = ({ menuActive, setMenuActive }) => {
 
     return (
-        <div className={`wrapper bg-zinc-900 fixed h-screen transition-all md:h-10 z-40 top-0 ${menuActive ? 'w-screen' : 'w-0 md:w-full'} md:relative md:flex items-center overflow-auto`}>
+        <div className={`wrapper bg-zinc-900 fixed h-screen transition-all md:h-auto z-40 top-0 ${menuActive ? 'w-screen' : 'w-0 md:w-full'} md:relative md:flex items-center overflow-auto`}>
             <i className="fa-solid fa-xmark absolute text-white md:hidden text-xl top-4 right-6" onClick={() => setMenuActive(!menuActive)}></i>
             <h1 className="text-white px-7 mt-10 text-5xl font-['Lobster'] md:hidden">Categories</h1>
             <Link to='/category/audio-interface'>
-                <p className="text-white md:px-5 py-4 w-10/12 mx-auto mt-10 md:mt-0 md:opacity-60 lg:hover:opacity-100 md:w-full lg:hover:bg-red-900 border-b border-zinc-600 mb-2 md:mb-0 md:border-none transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Audio Interfaces</p>
+                <p className="text-white md:px-5 py-4 md:py-2 w-10/12 mx-auto mt-10 md:mt-0 md:opacity-60 lg:hover:opacity-100 md:w-full lg:hover:bg-red-900 border-b border-zinc-600 my-2 md:my-0 md:border-none transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Audio Interfaces</p>
             </Link>
             <Link to="/category/studio-monitors">
                 <p className="text-white md:px-5 py-4 md:py-2 md:opacity-60 lg:hover:opacity-100 w-10/12 mx-auto md:w-full lg:hover:bg-red-900 border-b border-zinc-600 md:border-none my-2 md:my-0 transition-all whitespace-nowrap" onClick={() => setMenuActive(!menuActive)}>Studio Monitors</p>

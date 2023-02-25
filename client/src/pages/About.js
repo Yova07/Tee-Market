@@ -8,8 +8,8 @@ const About = () => {
         <>
                 <div className="about flex justify-center items-center">
                     <div className='flex justify-between'>
-                        <div className='flex flex-col justify-center items-center w-full mx-auto'>
-                            <h1 className="text-3xl md:text-5xl font-['Lobster']">In construction</h1>
+                        <div className='flex flex-col justify-center items-center'>
+                            <h1 className="text-3xl md:text-5xl font-['Lobster'] mt-20">In construction</h1>
                             <Player
                         autoplay
                         loop
