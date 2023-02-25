@@ -45,20 +45,6 @@ exports.getProductBySearchBar = async(req, res) => {
     res.status(200).json(article);
 }
 
-exports.createProduct = async (req, res) => {
-
-    try {
-        const product = await Products.create({
-            ...req.body
-
-        })
-
-        res.status(200).json(product);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-}
-
 exports.deleteProduct = async (req, res) => {
     const { id } = req.params;
 
@@ -67,24 +53,6 @@ exports.deleteProduct = async (req, res) => {
     }
 
     const product = await Products.findByIdAndDelete(id);
-
-    if(!product) {
-        return res.status(404).json({ error: 'No such product'} );
-    }
-
-    res.status(200).json(product);
-}
-
-exports.updateProduct = async (req, res) => {
-    const { id } = req.params;
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such ID'} );
-    }
-
-    const product = await Products.findByIdAndUpdate(id, {
-        ...req.body
-    });
 
     if(!product) {
         return res.status(404).json({ error: 'No such product'} );
