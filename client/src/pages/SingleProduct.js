@@ -12,8 +12,7 @@ const SingleProduct = () => {
     const [article, setArticle] = useState({});
     const [image, setImage] = useState();
     const [category, setCategory] = useState();
-    console.log(article);
-
+    
     const upperCase = (category) => {
         const lowerCase = category.charAt(0).toUpperCase() + category.slice(1);
         setCategory(lowerCase);
