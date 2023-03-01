@@ -31,7 +31,7 @@ export const AuthContextProvider = ({ children }) => {
         const userToken = localStorage.getItem('session_user');
 
         const fetch = async () => {
-            const response = await axios.get('/api/user/user', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/user`, {
                 headers: {
                     authorization: `Bearer ${userToken}`
                 }

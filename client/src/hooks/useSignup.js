@@ -11,7 +11,7 @@ export const useSignup = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('/api/user/signup', newUser);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/signup`, newUser);
 
             localStorage.setItem('session_user', response.data.token);
             setLoading(false);
