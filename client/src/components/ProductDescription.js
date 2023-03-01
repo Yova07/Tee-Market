@@ -23,7 +23,7 @@ const ProductDescription = ({ article }) => {
 
     const updateNote = async (note) => {
         try {
-            const response = await axios.patch(`/api/products/note/${article._id}`, { note })
+            const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/products/note/${article._id}`, { note })
         } catch (error) {
             console.log(error);
         }

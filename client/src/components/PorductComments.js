@@ -7,7 +7,7 @@ const ProductComments = ({ articleId }) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const response = await axios.get(`/api/products/${articleId}`)
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${articleId}`)
             setComments(response.data);
         }
         fetch();

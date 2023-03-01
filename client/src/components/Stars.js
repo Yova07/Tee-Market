@@ -40,7 +40,7 @@ const Stars = ({ productId }) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const response = await axios.get(`/api/comments/stars/${productId}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/comments/stars/${productId}`);
             setNumberComment(response.data.length);
             calcAverage(response.data);
         }

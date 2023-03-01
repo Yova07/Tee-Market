@@ -10,7 +10,7 @@ const Searchbar = () => {
     useEffect(() => {
         const fetch = async () => {
             if (search.length > 0) {
-                const response = await axios.get(`/api/products/search/${search.toLowerCase()}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/search/${search.toLowerCase()}`);
                 setSearchReslut(response.data);
             }
             if(search.length === 0) {

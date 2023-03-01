@@ -35,7 +35,7 @@ const DeliveryAdress = () => {
             }
 
             try {
-                const { data } = await axios.patch('/api/user/updateDelivery', newUserData, {
+                const { data } = await axios.patch(`${process.env.REACT_APP_API_URL}/api/user/updateDelivery`, newUserData, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('session_user')}`
                     }

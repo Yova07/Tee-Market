@@ -83,7 +83,7 @@ const Categories = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get(`/api/products/category/${category}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/category/${category}`);
                 setAllProductsByCategory(response.data);
                 setProductsByCategory(response.data);
                 toLowerCase(category);

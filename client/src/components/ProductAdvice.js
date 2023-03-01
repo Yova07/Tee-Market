@@ -65,7 +65,7 @@ const ProductAdvice = ({ setActive, active, productId, updateNote }) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const response = await axios.get(`/api/comments/stars/${productId}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/comments/stars/${productId}`);
             calcAverageStars(response.data)
             calcAverage(response.data);
         }

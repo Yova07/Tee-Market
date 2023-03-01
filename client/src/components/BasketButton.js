@@ -36,7 +36,7 @@ const BasketButton = ({ article }) => {
                     name: article.name,
                     price: article.price
                 }
-                const { data } = await axios.patch('/api/user/updateFavorites', favoriteProduct, {
+                const { data } = await axios.patch(`${process.env.REACT_APP_API_URL}/api/user/updateFavorites`, favoriteProduct, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('session_user')}`
                     }
@@ -49,7 +49,7 @@ const BasketButton = ({ article }) => {
             }
         }
         if(activeProduct === true) {
-            const { data } = await axios.delete(`/api/user/${article._id}`, {
+            const { data } = await axios.delete(`${process.env.REACT_APP_API_URL}/api/user/${article._id}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('session_user')}`
                 }

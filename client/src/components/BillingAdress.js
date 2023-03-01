@@ -35,7 +35,7 @@ const BillingAdress = () => {
         }
 
         try {
-            const { data } = await axios.patch('/api/user/updateFacturation', newUserData, {
+            const { data } = await axios.patch(`${process.env.REACT_APP_API_URL}/api/user/updateFacturation`, newUserData, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('session_user')}`
                 }

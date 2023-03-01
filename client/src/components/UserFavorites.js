@@ -10,7 +10,7 @@ const UserFavorites = () => {
     const { basket, setBasket } = useBasketContext();
 
     const handleClick = async (id) => {
-        const { data } = await axios.delete(`/api/user/${id}`, {
+        const { data } = await axios.delete(`${process.env.REACT_APP_API_URL}/api/user/${id}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('session_user')}`
             }

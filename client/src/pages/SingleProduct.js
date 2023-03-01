@@ -21,7 +21,7 @@ const SingleProduct = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await axios.get(`/api/products/product/${product}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/product/${product}`);
             setArticle(response.data);
             setImage(response.data.image[0]);
             upperCase(response.data.category);

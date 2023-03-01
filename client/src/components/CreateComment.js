@@ -32,7 +32,7 @@ const CreateComment = ({ active, setActive, articleId, note }) => {
                 comment
             };
 
-            const response = await axios.post(`/api/comments/${articleId}/create`, getComment);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/comments/${articleId}/create`, getComment);
             setStars(10);
         } catch (error) {
             console.log(error)

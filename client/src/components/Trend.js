@@ -12,7 +12,7 @@ const Trend = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('/api/products/popular');
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/popular`);
 
                 setTrendsProducts(response.data);
             } catch (error) {
