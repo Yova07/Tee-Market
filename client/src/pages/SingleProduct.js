@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import ProductComments from "../components/PorductComments";
 import ProductDescription from "../components/ProductDescription";
 import SingleProductSlider from "../components/SingleProductSlider";

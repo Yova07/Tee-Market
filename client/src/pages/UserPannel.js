@@ -1,5 +1,4 @@
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { useAuthContext } from "../context/UserContext";
 import { useEffect, useState } from "react";

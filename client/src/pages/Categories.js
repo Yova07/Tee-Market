@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import AsideFilterCategory from "../components/AsideFilterCategory";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import ProductsByCategory from "../components/ProductsByCategory";
 
 const Categories = () => {

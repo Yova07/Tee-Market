@@ -1,5 +1,4 @@
 import BasketArticle from "../components/BasketArticles";
-import Navbar from "../components/Navbar";
 import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 

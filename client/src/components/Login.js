@@ -38,12 +38,12 @@ const Login = ({ hide, setHide, active, setActive }) => {
             <button onClick={() => setHide(!hide)} className={`w-4/5 mx-auto border-2 ${hide ? 'hidden' : 'block'} mt-5 border-black text-lg opacity-30 hover:bg-black mb-5 hover:text-white transition-all duration-300 py-1`}>Login</button>
             <form onSubmit={handleSubmit} className={`flex flex-col justify-center items-center ${hide ? 'h-72' : 'h-0'} overflow-hidden duration-300 w-4/5 mx-auto`}>
                 <div className="flex flex-col w-full ">
-                    <label className="mb-2" for='email'>Email<span className="text-red-500">*</span></label>
+                    <label className="mb-2" htmlFor='email'>Email<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && email.length === 0 ? 'border-red-500' : ''}`} value={email} type='email' name='email' onChange={(e) => setEmail(e.target.value)} />
                 </div>
 
                 <div className="flex flex-col mt-6 w-full">
-                    <label className="mb-2" for='password'>Password<span className="text-red-500">*</span></label>
+                    <label className="mb-2" htmlFor='password'>Password<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && password.length === 0 ? 'border-red-500' : ''}`} value={password} type='password' name='password' onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="w-full">

@@ -45,22 +45,23 @@ const Signup = ({ hide, setHide, active, setActive }) => {
             <button onClick={() => setHide(!hide)} className={`w-4/5 mx-auto border-2 ${hide ? 'block' : 'hidden'} mt-5 border-black text-lg opacity-30 hover:bg-black hover:text-white transition-all py-1`}>Sign up</button>
             <form onSubmit={handleSubmit} className={`flex flex-col justify-center ${hide ? 'h-0' : 'h-[600px]'} overflow-hidden duration-300 transition-all items-center w-4/5 mx-auto`}>
                 <div className="flex flex-col w-full mt-5">
-                    <label className="mb-2" for='firstName'>First Name</label>
+                    <label className="mb-2" htmlFor='firstName'>First Name<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && firstName.length === 0 ? 'border-red-500' : ''}`} value={firstName} type='text' name='firsName' onChange={(e) => setFirstName(e.target.value)} />
                 </div>
 
                 <div className="flex flex-col mt-6 w-full">
-                    <label className="mb-2" for='lastName'>Last Name</label>
+                    <label className="mb-2" htmlFor='lastName'>Last Name<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && lastName.length === 0 ? 'border-red-500' : ''}`} type='text' value={lastName} name='lastName' onChange={(e) => setLastName(e.target.value)} />
                 </div>
                 <div className="flex flex-col w-full mt-6">
-                    <label className="mb-2" for='email'>Email<span className="text-red-500">*</span></label>
+                    <label className="mb-2" htmlFor='email'>Email<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && email.length === 0 ? 'border-red-500' : ''}`} type='email' value={email} name='email' onChange={(e) => setEmail(e.target.value)} />
                 </div>
 
                 <div className="flex flex-col mt-6 w-full">
-                    <label className="mb-2" for='password'>Password<span className="text-red-500">*</span></label>
+                    <label className="mb-2" htmlFor='password'>Password<span className="text-red-500">*</span></label>
                     <input className={`border-2 p-1 ${error && password.length === 0 ? 'border-red-500' : ''}`} type='password' value={password} name='password' onChange={(e) => setPassword(e.target.value)} />
+                    <p className="text-xs text-gray-500 mt-1">At least 8 characters, including 1 uppercase letter, 1 lowercase letter and 1 number</p>
                 </div>
                 <div className="w-full relative">
                     <p className="my-4">By creating an account, you agree to our website <span className="font-bold underline">Terms of Use Agreement</span>, <span className="font-bold underline">Terms of Sales</span>, <span className="font-bold underline">Privacy Policy</span>, and confirm that you are at least 16 years old.</p>
